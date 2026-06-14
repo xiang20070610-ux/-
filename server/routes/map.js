@@ -80,8 +80,15 @@ async function fetchFromAmap(lat, lng, poiConfig, radius, page) {
   }
 
   const pois = response.data.pois || [];
+  // 过滤无关场所：只保留类型码匹配或名称含关键词的
+  const filtered = pois.filter(p => {
+    if (p.type && p.type.startsWith(poiConfig.types.slice(0, 6))) return true;
+    const kw = poiConfig.keywords.split('|');
+    return kw.some(k => p.name.includes(k));
+  });
+
   return {
-    list: pois.map(p => ({
+    list: filtered.map(p => ({
       id: p.id,
       name: p.name,
       address: p.address,
