@@ -8,9 +8,15 @@ const axios = require('axios');
 
 const AMAP_API_KEY = process.env.AMAP_API_KEY || '';
 
+// 排除关键词（这些不是咖啡店，是快餐/餐厅）
+const COFFEE_EXCLUDE = ['肯德基','麦当劳','汉堡王','德克士','赛百味','华莱士',
+  '沙县小吃','兰州拉面','黄焖鸡','杨国福','张亮麻辣烫','正新鸡排',
+  '必胜客','达美乐','海底捞','呷哺','西贝','外婆家','绿茶餐厅',
+  '永和大王','真功夫','吉野家','和合谷','田老师红烧肉','庆丰包子'];
+
 // 兴趣点类型
 const POI_TYPES = {
-  coffee: { keywords: '咖啡馆|咖啡店', types: '050300', name: '咖啡馆' },
+  coffee: { keywords: '咖啡馆|咖啡店', types: '050300', name: '咖啡馆', exclude: COFFEE_EXCLUDE },
   park: { keywords: '公园|植物园', types: '110100', name: '公园' },
   mall: { keywords: '商场|购物中心', types: '060100', name: '商场' },
   bookstore: { keywords: '书店|书吧', types: '060400', name: '书店' },
@@ -80,8 +86,11 @@ async function fetchFromAmap(lat, lng, poiConfig, radius, page) {
   }
 
   const pois = response.data.pois || [];
-  // 过滤无关场所：只保留类型码匹配或名称含关键词的
+  // 过滤无关场所
   const filtered = pois.filter(p => {
+    // 排除快餐/餐厅
+    if (poiConfig.exclude && poiConfig.exclude.some(k => p.name.includes(k))) return false;
+    // 类型码匹配或名称含关键词
     if (p.type && p.type.startsWith(poiConfig.types.slice(0, 6))) return true;
     const kw = poiConfig.keywords.split('|');
     return kw.some(k => p.name.includes(k));
