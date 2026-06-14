@@ -1,0 +1,12 @@
+.category-header {
+  text-align: center;
+  padding: 40rpx 0 20rpx;
+}
+.category-icon { font-size: 72rpx; display: block; margin-bottom: 16rpx; }
+.category-name { font-size: 40rpx; font-weight: 700; color: var(--color-primary); display: block; margin-bottom: 8rpx; }
+.category-desc { font-size: 26rpx; color: var(--color-hint); }
+.stats-bar { text-align: center; padding: 16rpx 0; font-size: 24rpx; color: var(--color-hint); }
+.activity-list { margin-top: 8rpx; }
+.load-more { text-align: center; padding: 32rpx 0; }
+.load-text { font-size: 26rpx; color: var(--color-accent); padding: 12rpx 32rpx; border-radius: 20rpx; background: var(--color-accent-light); }
+.safe-bottom { height: calc(env(safe-area-inset-bottom) + 40rpx); }

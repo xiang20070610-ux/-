@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "activity-card": "/components/activity-card/activity-card"
+  },
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "活动列表"
+}

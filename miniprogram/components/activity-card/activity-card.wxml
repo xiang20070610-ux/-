@@ -1,0 +1,38 @@
+<!-- 活动卡片组件 -->
+<view class="activity-card {{darkMode ? 'dark' : ''}} fade-in" bind:tap="onTap">
+  <view class="card-header">
+    <view class="category-badge">
+      <text class="badge-icon">{{activity.category_icon || '📌'}}</text>
+      <text class="badge-text">{{activity.category_name || '活动'}}</text>
+    </view>
+    <view wx:if="{{activity.is_ai}}" class="ai-badge">
+      <text>🤖 AI推荐</text>
+    </view>
+    <view wx:if="{{activity.is_premium}}" class="premium-badge">
+      <text>✨ 精选</text>
+    </view>
+  </view>
+
+  <view class="card-body">
+    <text class="activity-icon">{{activity.icon || '🎯'}}</text>
+    <view class="activity-info">
+      <text class="activity-title">{{activity.title}}</text>
+      <text class="activity-desc">{{activity.description || '去试试吧'}}</text>
+    </view>
+    <view wx:if="{{showFavorite}}" class="fav-btn" catch:tap="onFavorite">
+      <text>{{isFavorited ? '❤️' : '🤍'}}</text>
+    </view>
+  </view>
+
+  <view wx:if="{{activity.tags && activity.tags.length > 0}}" class="card-tags">
+    <text class="tag" wx:for="{{activity.tags}}" wx:key="*this" wx:for-item="tag">
+      {{tag}}
+    </text>
+  </view>
+
+  <view wx:if="{{activity.mood_tags && activity.mood_tags.length > 0}}" class="mood-tags">
+    <text class="mood-tag" wx:for="{{activity.mood_tags}}" wx:key="*this" wx:for-item="mt">
+      {{mt === '开心' ? '😊' : mt === '平静' ? '😌' : mt === '无聊' ? '😐' : mt === '冒险' ? '🚀' : mt === '浪漫' ? '💕' : '📌'}} {{mt}}
+    </text>
+  </view>
+</view>

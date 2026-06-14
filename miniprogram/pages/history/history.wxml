@@ -1,0 +1,19 @@
+<view class="page-container {{darkMode ? 'dark' : ''}}">
+  <view class="page-header fade-in">
+    <text class="page-title">🕐 浏览记录</text>
+    <text class="clear-btn" bind:tap="onClearHistory" wx:if="{{historyList.length > 0}}">清空</text>
+  </view>
+
+  <activity-card
+    wx:for="{{historyList}}"
+    wx:key="id"
+    activity="{{item}}"
+    showFavorite="{{false}}"
+    bind:tap="onActivityTap"
+  />
+
+  <view class="empty-state" wx:if="{{!loading && historyList.length === 0}}">
+    <text class="empty-icon">📭</text>
+    <text class="empty-text">暂无浏览记录</text>
+  </view>
+</view>

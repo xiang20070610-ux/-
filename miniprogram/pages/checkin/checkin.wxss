@@ -1,0 +1,44 @@
+/* 打卡页样式 */
+.stats-cards { display: flex; gap: 16rpx; margin-bottom: 28rpx; }
+.stat-card { flex: 1; background: var(--color-white); border-radius: 20rpx; padding: 24rpx 0; text-align: center; box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.04); }
+.stat-card.highlight { background: linear-gradient(135deg, #fbc2eb, #a6c1ee); }
+.stat-card.highlight .stat-num,
+.stat-card.highlight .stat-label { color: #fff; }
+.stat-num { display: block; font-size: 48rpx; font-weight: 700; color: var(--color-primary); margin-bottom: 4rpx; }
+.stat-label { display: block; font-size: 22rpx; color: var(--color-hint); }
+
+.checkin-btn-area { text-align: center; padding: 28rpx 0 20rpx; }
+.checkin-btn { display: inline-flex; flex-direction: column; align-items: center; background: linear-gradient(135deg, #fbc2eb, #f6a6c8); border-radius: 50%; width: 180rpx; height: 180rpx; justify-content: center; box-shadow: 0 8rpx 24rpx rgba(246,166,200,0.4); transition: all 0.2s; }
+.checkin-btn:active { transform: scale(0.92); }
+.checkin-btn.done { background: linear-gradient(135deg, #c3cfe2, #c3cfe2); box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.1); }
+.checkin-icon { font-size: 52rpx; margin-bottom: 6rpx; }
+.checkin-text { font-size: 26rpx; font-weight: 600; color: #fff; }
+.checkin-hint { display: block; margin-top: 16rpx; font-size: 24rpx; color: var(--color-hint); }
+
+/* 日历 */
+.calendar-section { background: var(--color-white); border-radius: 24rpx; padding: 24rpx; box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.04); margin-bottom: 28rpx; }
+.calendar-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20rpx; }
+.month-nav { width: 56rpx; height: 56rpx; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--color-bg); font-size: 36rpx; color: var(--color-secondary); }
+.month-title { font-size: 32rpx; font-weight: 600; color: var(--color-primary); }
+.weekday-row { display: flex; margin-bottom: 10rpx; }
+.weekday { flex: 1; text-align: center; font-size: 24rpx; color: var(--color-hint); padding: 8rpx 0; }
+.calendar-grid { display: flex; flex-wrap: wrap; }
+.cal-day { width: calc(100% / 7); padding: 12rpx 0; text-align: center; display: flex; flex-direction: column; align-items: center; position: relative; }
+.cal-day.other-month { opacity: 0; }
+.day-num { font-size: 28rpx; color: var(--color-primary); }
+.day-icon { font-size: 22rpx; margin-top: 2rpx; }
+.cal-day.checked .day-num { color: #f6a6c8; font-weight: 600; }
+.cal-day.weekend .day-num { color: var(--color-hint); }
+.cal-day.today .day-num { color: #fff; background: var(--color-primary); width: 52rpx; height: 52rpx; line-height: 52rpx; border-radius: 50%; }
+.today-dot { width: 6rpx; height: 6rpx; border-radius: 50%; background: var(--color-accent); position: absolute; bottom: 2rpx; }
+
+/* 最近打卡 */
+.section-label { font-size: 26rpx; color: var(--color-hint); margin-bottom: 14rpx; display: block; }
+.recent-list { background: var(--color-white); border-radius: 20rpx; overflow: hidden; }
+.recent-item { display: flex; align-items: center; padding: 18rpx 24rpx; border-bottom: 1rpx solid var(--color-border); }
+.recent-item:last-child { border-bottom: none; }
+.r-icon { font-size: 36rpx; margin-right: 14rpx; }
+.r-info { flex: 1; }
+.r-title { display: block; font-size: 28rpx; color: var(--color-primary); }
+.r-date { display: block; font-size: 22rpx; color: var(--color-hint); }
+.r-note { font-size: 24rpx; color: var(--color-accent); }

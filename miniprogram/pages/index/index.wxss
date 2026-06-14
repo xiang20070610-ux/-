@@ -1,0 +1,195 @@
+/* 首页样式 - 简约白色设计 */
+
+/* 顶部区域 */
+.hero-section {
+  padding: 60rpx 0 40rpx;
+  text-align: center;
+}
+
+.hero-title {
+  display: block;
+  font-size: 60rpx;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 8rpx;
+  margin-bottom: 12rpx;
+}
+
+.hero-subtitle {
+  display: block;
+  font-size: 28rpx;
+  color: var(--color-hint);
+  margin-bottom: 8rpx;
+}
+
+.hero-desc {
+  display: block;
+  font-size: 34rpx;
+  font-weight: 500;
+  color: var(--color-secondary);
+  margin-top: 16rpx;
+}
+
+/* 心情选择器 */
+.mood-selector {
+  margin-bottom: 32rpx;
+}
+
+.section-label {
+  font-size: 26rpx;
+  color: var(--color-hint);
+  margin-bottom: 16rpx;
+  display: block;
+}
+
+.mood-scroll {
+  white-space: nowrap;
+}
+
+.mood-list {
+  display: flex;
+  gap: 16rpx;
+  padding: 8rpx 0;
+}
+
+.mood-item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-white);
+  border: 2rpx solid var(--color-border);
+  border-radius: 20rpx;
+  padding: 16rpx 24rpx;
+  min-width: 120rpx;
+  transition: all 0.25s ease;
+}
+
+.mood-item.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.mood-item.active .mood-text {
+  color: #ffffff;
+}
+
+.mood-emoji {
+  font-size: 40rpx;
+  margin-bottom: 6rpx;
+}
+
+.mood-text {
+  font-size: 22rpx;
+  color: var(--color-secondary);
+}
+
+/* 功能卡片 */
+.cards-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.feature-card {
+  display: flex;
+  align-items: center;
+  background: var(--color-white);
+  border-radius: 24rpx;
+  padding: 28rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.04);
+  transition: all 0.2s ease;
+}
+
+.feature-card:active {
+  transform: scale(0.98);
+  box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.08);
+}
+
+.card-icon-wrap {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 24rpx;
+  flex-shrink: 0;
+}
+
+.card-icon {
+  font-size: 36rpx;
+}
+
+.discover-icon { background: linear-gradient(135deg, #a8edea, #fed6e3); }
+.solo-icon { background: linear-gradient(135deg, #d4fc79, #96e6a1); }
+.couple-icon { background: linear-gradient(135deg, #fbc2eb, #a6c1ee); }
+.friend-icon { background: linear-gradient(135deg, #ffecd2, #fcb69f); }
+
+.card-content {
+  flex: 1;
+}
+
+.card-title {
+  display: block;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 6rpx;
+}
+
+.card-desc {
+  display: block;
+  font-size: 24rpx;
+  color: var(--color-hint);
+}
+
+.card-arrow {
+  font-size: 32rpx;
+  color: var(--color-hint);
+  font-weight: 200;
+}
+
+/* 快捷入口 */
+.quick-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40rpx;
+  padding: 0 8rpx;
+}
+
+.quick-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12rpx;
+}
+
+.quick-action:active {
+  opacity: 0.6;
+}
+
+.quick-icon {
+  font-size: 44rpx;
+  margin-bottom: 8rpx;
+}
+
+.quick-text {
+  font-size: 22rpx;
+  color: var(--color-hint);
+}
+
+.safe-bottom {
+  height: calc(env(safe-area-inset-bottom) + 40rpx);
+}
+
+/* 暗色模式补充 */
+@media (prefers-color-scheme: dark) {
+  .mood-item.active {
+    background: #ffffff;
+    border-color: #ffffff;
+  }
+  .mood-item.active .mood-text {
+    color: #121212;
+  }
+}

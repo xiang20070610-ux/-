@@ -1,0 +1,31 @@
+.location-bar { margin-bottom: 20rpx; }
+.location-info { display: flex; align-items: center; background: var(--color-white); border-radius: 20rpx; padding: 20rpx 24rpx; box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.04); }
+.location-icon { font-size: 32rpx; margin-right: 12rpx; }
+.location-text { flex: 1; font-size: 26rpx; color: var(--color-secondary); }
+.refresh-icon { font-size: 28rpx; }
+
+.poi-types { margin-bottom: 20rpx; }
+.type-list { display: flex; gap: 14rpx; padding: 4rpx 0; }
+.type-item { display: inline-flex; flex-direction: column; align-items: center; padding: 14rpx 20rpx; border-radius: 18rpx; background: var(--color-white); border: 2rpx solid var(--color-border); transition: all 0.2s; }
+.type-item.active { background: var(--color-primary); border-color: var(--color-primary); }
+.type-item.active .type-name { color: #fff; }
+.type-icon { font-size: 30rpx; margin-bottom: 4rpx; }
+.type-name { font-size: 20rpx; color: var(--color-secondary); }
+
+.poi-list { display: flex; flex-direction: column; gap: 14rpx; }
+.poi-card { display: flex; align-items: center; background: var(--color-white); border-radius: 20rpx; padding: 22rpx 24rpx; box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.04); }
+.poi-left { width: 64rpx; height: 64rpx; display: flex; align-items: center; justify-content: center; background: var(--color-bg); border-radius: 16rpx; margin-right: 18rpx; }
+.poi-icon { font-size: 32rpx; }
+.poi-info { flex: 1; }
+.poi-name { display: block; font-size: 30rpx; font-weight: 600; color: var(--color-primary); margin-bottom: 4rpx; }
+.poi-addr { display: block; font-size: 24rpx; color: var(--color-hint); margin-bottom: 4rpx; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.poi-meta { display: flex; gap: 16rpx; }
+.poi-distance { font-size: 22rpx; color: var(--color-accent); font-weight: 500; }
+.poi-type-tag { font-size: 20rpx; color: var(--color-hint); }
+.poi-action { padding: 12rpx; }
+.nav-icon { font-size: 36rpx; }
+
+.map-tip { text-align: center; padding: 24rpx; margin-top: 20rpx; }
+.map-tip text { font-size: 22rpx; color: var(--color-hint); background: var(--color-accent-light); padding: 12rpx 24rpx; border-radius: 16rpx; }
+
+.safe-bottom { height: calc(env(safe-area-inset-bottom) + 40rpx); }

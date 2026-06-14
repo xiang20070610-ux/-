@@ -1,0 +1,24 @@
+<view class="page-container {{darkMode ? 'dark' : ''}}">
+  <view class="page-title fade-in">❤️ 我的收藏</view>
+
+  <activity-card
+    wx:for="{{favoriteList}}"
+    wx:key="id"
+    activity="{{item}}"
+    isFavorited="{{true}}"
+    showFavorite="{{true}}"
+    bind:tap="onActivityTap"
+    bind:favorite="onRemoveFavorite"
+  />
+
+  <view class="load-more" wx:if="{{hasMore}}">
+    <text class="load-text" bind:tap="loadMore">{{loadingMore ? '加载中...' : '加载更多'}}</text>
+  </view>
+
+  <view class="empty-state" wx:if="{{!loading && favoriteList.length === 0}}">
+    <text class="empty-icon">💝</text>
+    <text class="empty-text">还没有收藏哦，去发现喜欢的活动吧</text>
+  </view>
+
+  <view class="safe-bottom"></view>
+</view>

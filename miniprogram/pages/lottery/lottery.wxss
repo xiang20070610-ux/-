@@ -1,0 +1,86 @@
+/* 抽签页面 */
+.lottery-header { text-align: center; padding: 32rpx 0; }
+.lottery-title { display: block; font-size: 44rpx; font-weight: 700; color: var(--color-primary); margin-bottom: 8rpx; }
+.lottery-subtitle { font-size: 26rpx; color: var(--color-hint); }
+
+/* 抽签转盘 */
+.lottery-wheel-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40rpx 0;
+}
+.wheel-display {
+  background: var(--color-white);
+  border-radius: 28rpx;
+  padding: 36rpx 48rpx;
+  min-width: 500rpx;
+  text-align: center;
+  box-shadow: 0 4rpx 24rpx rgba(0,0,0,0.06);
+  margin-bottom: 16rpx;
+}
+.wheel-display.spinning {
+  animation: shake 0.1s infinite;
+}
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  25% { transform: translateX(-4rpx); }
+  75% { transform: translateX(4rpx); }
+}
+.wheel-text { font-size: 36rpx; font-weight: 600; color: var(--color-primary); }
+.wheel-icon { font-size: 64rpx; margin-top: -10rpx; }
+
+/* 分类选择 */
+.section-label { font-size: 26rpx; color: var(--color-hint); display: block; margin-bottom: 14rpx; }
+.category-select { margin-bottom: 24rpx; }
+.category-grid { display: flex; flex-wrap: wrap; gap: 14rpx; }
+.cat-option {
+  display: flex; flex-direction: column; align-items: center; padding: 16rpx 24rpx;
+  border-radius: 18rpx; background: var(--color-white); border: 2rpx solid var(--color-border);
+  min-width: 140rpx; transition: all 0.2s;
+}
+.cat-option.active { background: var(--color-primary); border-color: var(--color-primary); }
+.cat-option.active .cat-text { color: #fff; }
+.cat-icon { font-size: 32rpx; margin-bottom: 4rpx; }
+.cat-text { font-size: 22rpx; color: var(--color-secondary); }
+
+/* 抽签按钮 */
+.lottery-btn-area { display: flex; justify-content: center; padding: 16rpx 0 32rpx; }
+.lottery-btn {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  border-radius: 48rpx; padding: 24rpx 72rpx; text-align: center;
+  box-shadow: 0 8rpx 24rpx rgba(245,87,108,0.3);
+  transition: all 0.2s;
+}
+.lottery-btn text { font-size: 32rpx; font-weight: 600; color: #fff; }
+.lottery-btn:active { transform: scale(0.95); opacity: 0.9; }
+.lottery-btn.disabled { opacity: 0.6; }
+
+/* 结果卡片 */
+.lottery-result { margin-bottom: 32rpx; }
+.result-card {
+  background: var(--color-white); border-radius: 28rpx; padding: 32rpx;
+  box-shadow: 0 4rpx 24rpx rgba(0,0,0,0.06); text-align: center;
+}
+.result-label { font-size: 24rpx; color: var(--color-accent); display: block; margin-bottom: 20rpx; }
+.result-content { padding: 16rpx 0; }
+.result-icon { font-size: 80rpx; display: block; margin-bottom: 16rpx; }
+.result-title { font-size: 38rpx; font-weight: 700; color: var(--color-primary); display: block; margin-bottom: 12rpx; }
+.result-desc { font-size: 26rpx; color: var(--color-secondary); display: block; margin-bottom: 18rpx; line-height: 1.6; }
+.result-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10rpx; margin-bottom: 8rpx; }
+.result-tags .tag { font-size: 22rpx; color: var(--color-hint); background: var(--color-bg); padding: 6rpx 16rpx; border-radius: 16rpx; }
+.result-actions { display: flex; gap: 16rpx; margin-top: 24rpx; padding-top: 20rpx; border-top: 1rpx solid var(--color-border); }
+.result-btn { flex: 1; padding: 18rpx 0; border-radius: 20rpx; text-align: center; font-size: 28rpx; background: var(--color-primary); color: #fff; }
+.result-btn.outline { background: var(--color-bg); color: var(--color-primary); border: 2rpx solid var(--color-border); }
+.result-btn:active { opacity: 0.8; }
+
+/* 历史 */
+.lottery-history { margin-top: 8rpx; }
+.history-list { background: var(--color-white); border-radius: 20rpx; overflow: hidden; }
+.history-row { display: flex; align-items: center; padding: 20rpx 24rpx; border-bottom: 1rpx solid var(--color-border); }
+.history-row:last-child { border-bottom: none; }
+.h-icon { font-size: 32rpx; margin-right: 14rpx; }
+.h-title { flex: 1; font-size: 26rpx; color: var(--color-primary); }
+.h-time { font-size: 22rpx; color: var(--color-hint); flex-shrink: 0; }
+
+.safe-bottom { height: calc(env(safe-area-inset-bottom) + 40rpx); }

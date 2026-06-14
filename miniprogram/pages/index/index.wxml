@@ -1,0 +1,102 @@
+<!-- 首页 -->
+<view class="page-container {{darkMode ? 'dark' : ''}}">
+  <!-- 顶部标题区 -->
+  <view class="hero-section fade-in">
+    <text class="hero-title">随机岛</text>
+    <text class="hero-subtitle">给你的生活一点灵感</text>
+    <text class="hero-desc">今天想做什么？</text>
+  </view>
+
+  <!-- 心情选择器 -->
+  <view class="mood-selector fade-in">
+    <text class="section-label">现在心情如何？</text>
+    <scroll-view class="mood-scroll" scroll-x="true" enhanced show-scrollbar="{{false}}">
+      <view class="mood-list">
+        <view
+          wx:for="{{moodOptions}}"
+          wx:key="value"
+          class="mood-item {{selectedMood === item.value ? 'active' : ''}}"
+          data-mood="{{item.value}}"
+          bind:tap="onSelectMood"
+        >
+          <text class="mood-emoji">{{item.icon}}</text>
+          <text class="mood-text">{{item.value}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 功能卡片区 -->
+  <view class="cards-section">
+    <!-- 发现身边 -->
+    <view class="feature-card discover-card fade-in" bind:tap="navigateToMap">
+      <view class="card-icon-wrap discover-icon">
+        <text class="card-icon">🗺️</text>
+      </view>
+      <view class="card-content">
+        <text class="card-title">发现身边</text>
+        <text class="card-desc">附近活动推荐 · 咖啡·公园·美食</text>
+      </view>
+      <text class="card-arrow">→</text>
+    </view>
+
+    <!-- 独处 -->
+    <view class="feature-card solo-card fade-in" data-category="1" bind:tap="navigateToCategory">
+      <view class="card-icon-wrap solo-icon">
+        <text class="card-icon">🧘</text>
+      </view>
+      <view class="card-content">
+        <text class="card-title">独处</text>
+        <text class="card-desc">100+件小事 · 享受独处时光</text>
+      </view>
+      <text class="card-arrow">→</text>
+    </view>
+
+    <!-- 情侣 -->
+    <view class="feature-card couple-card fade-in" data-category="2" bind:tap="navigateToCategory">
+      <view class="card-icon-wrap couple-icon">
+        <text class="card-icon">💑</text>
+      </view>
+      <view class="card-content">
+        <text class="card-title">情侣</text>
+        <text class="card-desc">100+件小事 · 让爱在日常中升温</text>
+      </view>
+      <text class="card-arrow">→</text>
+    </view>
+
+    <!-- 好友 -->
+    <view class="feature-card friend-card fade-in" data-category="3" bind:tap="navigateToCategory">
+      <view class="card-icon-wrap friend-icon">
+        <text class="card-icon">🎉</text>
+      </view>
+      <view class="card-content">
+        <text class="card-title">三五好友</text>
+        <text class="card-desc">100+件小事 · 快乐加倍</text>
+      </view>
+      <text class="card-arrow">→</text>
+    </view>
+  </view>
+
+  <!-- 底部快捷入口 -->
+  <view class="quick-actions fade-in">
+    <view class="quick-action" bind:tap="navigateToLottery">
+      <text class="quick-icon">🎰</text>
+      <text class="quick-text">抽签决定</text>
+    </view>
+    <view class="quick-action" bind:tap="navigateToCheckin">
+      <text class="quick-icon">💝</text>
+      <text class="quick-text">情侣打卡</text>
+    </view>
+    <view class="quick-action" bind:tap="navigateToInspire">
+      <text class="quick-icon">✨</text>
+      <text class="quick-text">AI灵感</text>
+    </view>
+    <view class="quick-action" bind:tap="navigateToStats">
+      <text class="quick-icon">📊</text>
+      <text class="quick-text">数据统计</text>
+    </view>
+  </view>
+
+  <!-- 底部安全区 -->
+  <view class="safe-bottom"></view>
+</view>

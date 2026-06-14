@@ -1,0 +1,100 @@
+<!-- AI灵感页面 -->
+<view class="page-container {{darkMode ? 'dark' : ''}}">
+  <!-- 心情选择 -->
+  <view class="mood-bar fade-in">
+    <text class="section-label">随机岛心情</text>
+    <scroll-view class="mood-scroll" scroll-x="true" enhanced show-scrollbar="{{false}}">
+      <view class="mood-list">
+        <view
+          wx:for="{{moodOptions}}"
+          wx:key="value"
+          class="mood-chip {{selectedMood === item.value ? 'active' : ''}}"
+          data-mood="{{item.value}}"
+          bind:tap="onSelectMood"
+        >
+          <text>{{item.icon}} {{item.value}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 活动展示区 -->
+  <view class="inspire-card fade-in">
+    <view class="card-label">
+      <text class="label-dot"></text>
+      <text>{{currentSource === 'ai' ? 'AI为你推荐' : '精选推荐'}}</text>
+    </view>
+
+    <!-- 活动内容 -->
+    <view class="activity-display" wx:if="{{currentActivity}}">
+      <view class="activity-emoji">{{currentActivity.icon || '🎯'}}</view>
+      <text class="activity-title-xl">{{currentActivity.title}}</text>
+      <text class="activity-description">{{currentActivity.description}}</text>
+
+      <view class="activity-meta">
+        <view class="meta-item" wx:if="{{currentActivity.category_name}}">
+          <text>{{currentActivity.category_icon || '📌'}} {{currentActivity.category_name}}</text>
+        </view>
+        <view class="meta-item" wx:if="{{currentActivity.is_ai}}">
+          <text>🤖 AI生成</text>
+        </view>
+      </view>
+
+      <!-- 标签 -->
+      <view class="tag-row" wx:if="{{currentActivity.tags && currentActivity.tags.length > 0}}">
+        <text class="tag" wx:for="{{currentActivity.tags}}" wx:key="*this">{{item}}</text>
+      </view>
+    </view>
+
+    <!-- 加载状态 -->
+    <view class="loading-area" wx:if="{{loading}}">
+      <view class="loading-spinner"></view>
+      <text class="loading-text">正在为你生成灵感...</text>
+    </view>
+
+    <!-- 操作按钮 -->
+    <view class="action-row">
+      <view class="btn-secondary" bind:tap="onRandomActivity">
+        <text>🔄 换一个</text>
+      </view>
+      <view class="btn-ai" bind:tap="onAIGenerate">
+        <text>🤖 AI灵感</text>
+      </view>
+    </view>
+
+    <!-- 操作按钮组 -->
+    <view class="action-btns">
+      <view class="action-btn" bind:tap="onFavorite">
+        <text>{{isFavorited ? '❤️' : '🤍'}}</text>
+        <text>{{isFavorited ? '已收藏' : '收藏'}}</text>
+      </view>
+      <view class="action-btn" bind:tap="onComplete">
+        <text>✅</text>
+        <text>完成</text>
+      </view>
+      <view class="action-btn" bind:tap="onShare">
+        <text>📤</text>
+        <text>分享</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 历史推荐 -->
+  <view class="history-section fade-in" wx:if="{{historyList.length > 0}}">
+    <text class="section-label">最近推荐</text>
+    <view class="history-grid">
+      <view
+        class="history-item"
+        wx:for="{{historyList}}"
+        wx:key="id"
+        data-id="{{item.id}}"
+        bind:tap="onHistoryTap"
+      >
+        <text class="history-icon">{{item.icon || '🎯'}}</text>
+        <text class="history-title text-ellipsis">{{item.title}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="safe-bottom"></view>
+</view>

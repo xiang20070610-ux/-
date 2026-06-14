@@ -1,0 +1,28 @@
+{
+  "light": {
+    "colorPrimary": "#2c2c2c",
+    "colorSecondary": "#666666",
+    "colorHint": "#999999",
+    "colorBorder": "#f0f0f0",
+    "colorBg": "#f8f8f8",
+    "colorWhite": "#ffffff",
+    "colorAccent": "#ff6b6b",
+    "colorAccentLight": "#fff0f0",
+    "shadowSm": "0 2rpx 8rpx rgba(0,0,0,0.04)",
+    "shadowMd": "0 4rpx 16rpx rgba(0,0,0,0.06)",
+    "shadowLg": "0 8rpx 32rpx rgba(0,0,0,0.08)"
+  },
+  "dark": {
+    "colorPrimary": "#e8e8e8",
+    "colorSecondary": "#a0a0a0",
+    "colorHint": "#707070",
+    "colorBorder": "#2a2a2a",
+    "colorBg": "#121212",
+    "colorWhite": "#1e1e1e",
+    "colorAccent": "#ff8a80",
+    "colorAccentLight": "#2a1518",
+    "shadowSm": "0 2rpx 8rpx rgba(0,0,0,0.2)",
+    "shadowMd": "0 4rpx 16rpx rgba(0,0,0,0.3)",
+    "shadowLg": "0 8rpx 32rpx rgba(0,0,0,0.4)"
+  }
+}

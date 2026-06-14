@@ -1,0 +1,237 @@
+/**
+ * 随机岛小程序 - 全局样式
+ * 简约白色设计风格，圆角卡片设计
+ */
+
+/* ========== CSS 变量（全局设计Token） ========== */
+page {
+  --color-primary: #2c2c2c;
+  --color-secondary: #666666;
+  --color-hint: #999999;
+  --color-border: #f0f0f0;
+  --color-bg: #f8f8f8;
+  --color-white: #ffffff;
+  --color-accent: #ff6b6b;
+  --color-accent-light: #fff0f0;
+  --color-success: #52c41a;
+  --color-warning: #faad14;
+
+  --radius-sm: 8rpx;
+  --radius-md: 16rpx;
+  --radius-lg: 24rpx;
+  --radius-xl: 32rpx;
+
+  --shadow-sm: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4rpx 16rpx rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8rpx 32rpx rgba(0, 0, 0, 0.08);
+
+  --font-xs: 22rpx;
+  --font-sm: 26rpx;
+  --font-md: 30rpx;
+  --font-lg: 36rpx;
+  --font-xl: 44rpx;
+  --font-xxl: 52rpx;
+
+  --spacing-xs: 8rpx;
+  --spacing-sm: 16rpx;
+  --spacing-md: 24rpx;
+  --spacing-lg: 32rpx;
+  --spacing-xl: 48rpx;
+
+  /* 页面背景 */
+  background-color: var(--color-bg);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  font-size: var(--font-md);
+  color: var(--color-primary);
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+/* ========== 深色模式 ========== */
+@media (prefers-color-scheme: dark) {
+  page {
+    --color-primary: #e8e8e8;
+    --color-secondary: #a0a0a0;
+    --color-hint: #707070;
+    --color-border: #2a2a2a;
+    --color-bg: #121212;
+    --color-white: #1e1e1e;
+    --color-accent: #ff8a80;
+    --color-accent-light: #2a1518;
+
+    --shadow-sm: 0 2rpx 8rpx rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4rpx 16rpx rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 8rpx 32rpx rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* ========== 全局重置 ========== */
+view, text, image, scroll-view, swiper, button, input, textarea {
+  box-sizing: border-box;
+}
+
+/* ========== 常用原子类 ========== */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-ellipsis-2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* ========== 卡片样式 ========== */
+.card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  transition: all 0.2s ease;
+}
+
+.card:active {
+  transform: scale(0.98);
+  box-shadow: var(--shadow-md);
+}
+
+/* ========== 按钮样式 ========== */
+.btn-primary {
+  background: var(--color-primary);
+  color: #ffffff;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: var(--font-md);
+  text-align: center;
+  border: none;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:active {
+  opacity: 0.8;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: var(--font-md);
+  text-align: center;
+}
+
+.btn-accent {
+  background: var(--color-accent);
+  color: #ffffff;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: var(--font-md);
+  text-align: center;
+  border: none;
+}
+
+/* ========== 标签样式 ========== */
+.tag {
+  display: inline-block;
+  background: var(--color-bg);
+  color: var(--color-secondary);
+  font-size: var(--font-xs);
+  padding: 4rpx 12rpx;
+  border-radius: var(--radius-sm);
+  margin-right: 8rpx;
+  margin-bottom: 8rpx;
+}
+
+.tag-accent {
+  background: var(--color-accent-light);
+  color: var(--color-accent);
+}
+
+/* ========== 页面容器 ========== */
+.page-container {
+  padding: var(--spacing-md);
+  padding-bottom: calc(var(--spacing-xl) + env(safe-area-inset-bottom));
+  min-height: 100vh;
+}
+
+/* ========== 分割线 ========== */
+.divider {
+  height: 1rpx;
+  background: var(--color-border);
+  margin: var(--spacing-md) 0;
+}
+
+/* ========== 空状态 ========== */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl) 0;
+  color: var(--color-hint);
+}
+
+.empty-state .empty-icon {
+  font-size: 100rpx;
+  margin-bottom: var(--spacing-md);
+  opacity: 0.5;
+}
+
+.empty-state .empty-text {
+  font-size: var(--font-sm);
+  color: var(--color-hint);
+}
+
+/* ========== 加载动画 ========== */
+.loading-spinner {
+  width: 40rpx;
+  height: 40rpx;
+  border: 3rpx solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ========== 页面过渡动画 ========== */
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20rpx); }
+  to { opacity: 1; transform: translateY(0); }
+}

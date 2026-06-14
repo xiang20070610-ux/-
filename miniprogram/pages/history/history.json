@@ -1,0 +1,4 @@
+{
+  "usingComponents": {"activity-card": "/components/activity-card/activity-card"},
+  "navigationBarTitleText": "浏览记录"
+}

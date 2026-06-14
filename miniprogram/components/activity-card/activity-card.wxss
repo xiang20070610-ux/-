@@ -1,0 +1,146 @@
+/* 活动卡片组件样式 */
+.activity-card {
+  background: var(--color-white);
+  border-radius: 24rpx;
+  padding: 28rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.04);
+  transition: all 0.2s ease;
+}
+
+.activity-card:active {
+  transform: scale(0.985);
+  box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.08);
+}
+
+.activity-card.dark {
+  background: var(--color-white);
+}
+
+/* 卡片头部 */
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18rpx;
+}
+
+.category-badge {
+  display: flex;
+  align-items: center;
+  background: var(--color-bg);
+  padding: 6rpx 16rpx;
+  border-radius: 20rpx;
+}
+
+.badge-icon {
+  font-size: 22rpx;
+  margin-right: 4rpx;
+}
+
+.badge-text {
+  font-size: 22rpx;
+  color: var(--color-secondary);
+}
+
+.ai-badge {
+  margin-left: 12rpx;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  padding: 4rpx 14rpx;
+  border-radius: 20rpx;
+}
+
+.ai-badge text {
+  font-size: 20rpx;
+  color: #fff;
+}
+
+.premium-badge {
+  margin-left: 12rpx;
+  background: linear-gradient(135deg, #f5af19, #f12711);
+  padding: 4rpx 14rpx;
+  border-radius: 20rpx;
+}
+
+.premium-badge text {
+  font-size: 20rpx;
+  color: #fff;
+}
+
+/* 卡片主体 */
+.card-body {
+  display: flex;
+  align-items: flex-start;
+}
+
+.activity-icon {
+  font-size: 52rpx;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+  width: 72rpx;
+  height: 72rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  border-radius: 18rpx;
+}
+
+.activity-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.activity-title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 8rpx;
+  line-height: 1.3;
+}
+
+.activity-desc {
+  font-size: 26rpx;
+  color: var(--color-secondary);
+  line-height: 1.5;
+}
+
+.fav-btn {
+  padding: 8rpx;
+  flex-shrink: 0;
+  font-size: 36rpx;
+}
+
+/* 标签区域 */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 18rpx;
+  padding-top: 16rpx;
+  border-top: 1rpx solid var(--color-border);
+}
+
+.tag {
+  font-size: 22rpx;
+  color: var(--color-hint);
+  background: var(--color-bg);
+  padding: 4rpx 14rpx;
+  border-radius: 16rpx;
+  margin-right: 10rpx;
+  margin-bottom: 6rpx;
+}
+
+.mood-tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10rpx;
+}
+
+.mood-tag {
+  font-size: 20rpx;
+  color: var(--color-accent);
+  background: var(--color-accent-light);
+  padding: 2rpx 12rpx;
+  border-radius: 12rpx;
+  margin-right: 8rpx;
+}

@@ -1,0 +1,66 @@
+<!-- 发现身边 - 地图推荐页 -->
+<view class="page-container {{darkMode ? 'dark' : ''}}">
+  <!-- 位置信息 -->
+  <view class="location-bar fade-in">
+    <view class="location-info" bind:tap="onGetLocation">
+      <text class="location-icon">📍</text>
+      <text class="location-text">{{locationText}}</text>
+      <text class="refresh-icon">🔄</text>
+    </view>
+  </view>
+
+  <!-- 地点类型选择 -->
+  <view class="poi-types fade-in">
+    <scroll-view scroll-x="true" enhanced show-scrollbar="{{false}}">
+      <view class="type-list">
+        <view
+          wx:for="{{poiTypes}}"
+          wx:key="type"
+          class="type-item {{selectedType === item.type ? 'active' : ''}}"
+          data-type="{{item.type}}"
+          bind:tap="onSelectType"
+        >
+          <text class="type-icon">{{item.icon}}</text>
+          <text class="type-name">{{item.name}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 地点列表 -->
+  <view class="poi-list fade-in">
+    <view
+      class="poi-card"
+      wx:for="{{poiList}}"
+      wx:key="id"
+    >
+      <view class="poi-left">
+        <text class="poi-icon">{{poiIcon}}</text>
+      </view>
+      <view class="poi-info">
+        <text class="poi-name">{{item.name}}</text>
+        <text class="poi-addr">{{item.address}}</text>
+        <view class="poi-meta">
+          <text class="poi-distance">{{item.distanceText}}</text>
+          <text class="poi-type-tag">{{item.type || ''}}</text>
+        </view>
+      </view>
+      <view class="poi-action" data-item="{{item}}" bind:tap="onNavigateToPOI">
+        <text class="nav-icon">🧭</text>
+      </view>
+    </view>
+
+    <!-- 空状态 -->
+    <view class="empty-state" wx:if="{{!loading && poiList.length === 0}}">
+      <text class="empty-icon">🗺️</text>
+      <text class="empty-text">获取位置后可查看附近推荐</text>
+    </view>
+  </view>
+
+  <!-- 提示信息 -->
+  <view class="map-tip fade-in" wx:if="{{isMockData}}">
+    <text>💡 当前使用模拟数据，配置高德API Key后获取真实数据</text>
+  </view>
+
+  <view class="safe-bottom"></view>
+</view>

@@ -1,0 +1,16 @@
+<!-- 自定义导航栏 -->
+<view class="nav-bar {{darkMode ? 'dark' : ''}}" style="padding-top: {{statusBarHeight}}px;">
+  <view class="nav-content" style="height: {{navHeight}}px;">
+    <view wx:if="{{showBack}}" class="nav-back" bind:tap="onBack">
+      <text class="back-icon">←</text>
+    </view>
+    <view class="nav-title">
+      <text>{{title}}</text>
+    </view>
+    <view wx:if="{{showRight}}" class="nav-right" bind:tap="onRight">
+      <text>{{rightText}}</text>
+    </view>
+  </view>
+</view>
+<!-- 占位高度 -->
+<view style="height: {{totalHeight}}px;"></view>

@@ -1,0 +1,78 @@
+<!-- 情侣打卡页 -->
+<view class="page-container {{darkMode ? 'dark' : ''}}">
+  <!-- 统计卡片 -->
+  <view class="stats-cards fade-in">
+    <view class="stat-card">
+      <text class="stat-num">{{stats.total_days || 0}}</text>
+      <text class="stat-label">累计打卡</text>
+    </view>
+    <view class="stat-card highlight">
+      <text class="stat-num">{{stats.streak_days || 0}}</text>
+      <text class="stat-label">连续天数 🔥</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-num">{{stats.monthly_days || 0}}</text>
+      <text class="stat-label">本月打卡</text>
+    </view>
+  </view>
+
+  <!-- 打卡按钮 -->
+  <view class="checkin-btn-area fade-in">
+    <view class="checkin-btn {{checkedToday ? 'done' : ''}}" bind:tap="onCheckin">
+      <text class="checkin-icon">{{checkedToday ? '✅' : '💝'}}</text>
+      <text class="checkin-text">{{checkedToday ? '今日已打卡' : '今日打卡'}}</text>
+    </view>
+    <text class="checkin-hint" wx:if="{{!checkedToday}}">坚持打卡，记录你们的每一天</text>
+  </view>
+
+  <!-- 月历视图 -->
+  <view class="calendar-section fade-in">
+    <view class="calendar-header">
+      <view class="month-nav" bind:tap="onPrevMonth">
+        <text>‹</text>
+      </view>
+      <text class="month-title">{{calendarYear}}年{{calendarMonth}}月</text>
+      <view class="month-nav" bind:tap="onNextMonth">
+        <text>›</text>
+      </view>
+    </view>
+
+    <!-- 星期表头 -->
+    <view class="weekday-row">
+      <text class="weekday" wx:for="{{weekDays}}" wx:key="*this">{{item}}</text>
+    </view>
+
+    <!-- 日期网格 -->
+    <view class="calendar-grid">
+      <view
+        wx:for="{{calendarDays}}"
+        wx:key="date"
+        class="cal-day {{item.weekday === 0 || item.weekday === 6 ? 'weekend' : ''}} {{item.checked ? 'checked' : ''}} {{item.is_today ? 'today' : ''}} {{!item.currentMonth ? 'other-month' : ''}}"
+        data-date="{{item.date}}"
+        data-checked="{{item.checked}}"
+        bind:tap="onDayTap"
+      >
+        <text class="day-num">{{item.day}}</text>
+        <text class="day-icon" wx:if="{{item.checked && item.data}}">{{item.data.icon || '💝'}}</text>
+        <view class="today-dot" wx:if="{{item.is_today}}"></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 最近打卡记录 -->
+  <view class="recent-section fade-in" wx:if="{{stats.recent_checkins && stats.recent_checkins.length > 0}}">
+    <text class="section-label">最近打卡</text>
+    <view class="recent-list">
+      <view class="recent-item" wx:for="{{stats.recent_checkins}}" wx:key="id">
+        <text class="r-icon">{{item.activity_icon || '💝'}}</text>
+        <view class="r-info">
+          <text class="r-title">{{item.activity_title || '自定义打卡'}}</text>
+          <text class="r-date">{{item.checkin_date}}</text>
+        </view>
+        <text class="r-note" wx:if="{{item.note}}">{{item.note}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="safe-bottom"></view>
+</view>

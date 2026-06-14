@@ -1,0 +1,61 @@
+<view class="page-container {{darkMode ? 'dark' : ''}}">
+  <view class="page-title fade-in">⚙️ 设置</view>
+
+  <view class="settings-section fade-in">
+    <!-- 深色模式 -->
+    <view class="setting-item">
+      <view class="setting-left">
+        <text class="setting-icon">🌙</text>
+        <text class="setting-label">深色模式</text>
+      </view>
+      <switch checked="{{darkMode}}" bindchange="onToggleDarkMode" color="#2c2c2c" />
+    </view>
+
+    <!-- 通知 -->
+    <view class="setting-item">
+      <view class="setting-left">
+        <text class="setting-icon">🔔</text>
+        <text class="setting-label">每日提醒</text>
+        <text class="setting-desc">每天推送一条活动灵感</text>
+      </view>
+      <switch checked="{{notifyEnabled}}" bindchange="onToggleNotify" color="#2c2c2c" />
+    </view>
+
+    <!-- 缓存管理 -->
+    <view class="setting-item" bind:tap="onClearCache">
+      <view class="setting-left">
+        <text class="setting-icon">🗂️</text>
+        <text class="setting-label">清除缓存</text>
+      </view>
+      <text class="cache-size">{{cacheSize}}</text>
+      <text class="setting-arrow">›</text>
+    </view>
+  </view>
+
+  <view class="settings-section fade-in">
+    <text class="section-label">关于</text>
+    <view class="setting-item">
+      <view class="setting-left">
+        <text class="setting-icon">📱</text>
+        <text class="setting-label">版本</text>
+      </view>
+      <text class="setting-value">1.0.0</text>
+    </view>
+    <view class="setting-item" bind:tap="onFeedback">
+      <view class="setting-left">
+        <text class="setting-icon">💬</text>
+        <text class="setting-label">意见反馈</text>
+      </view>
+      <text class="setting-arrow">›</text>
+    </view>
+    <view class="setting-item" bind:tap="onAbout">
+      <view class="setting-left">
+        <text class="setting-icon">📖</text>
+        <text class="setting-label">关于随机岛</text>
+      </view>
+      <text class="setting-arrow">›</text>
+    </view>
+  </view>
+
+  <view class="safe-bottom"></view>
+</view>

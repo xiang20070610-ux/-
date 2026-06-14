@@ -1,0 +1,22 @@
+{
+  "name": "moment-server",
+  "version": "1.0.0",
+  "description": "随机岛小程序后端服务",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "init-db": "node database/init.js",
+    "seed": "node database/seed.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.7.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "axios": "^1.6.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}

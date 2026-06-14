@@ -1,0 +1,35 @@
+.profile-header { text-align: center; padding: 40rpx 0 20rpx; }
+.avatar { width: 100rpx; height: 100rpx; border-radius: 50%; background: linear-gradient(135deg, #fbc2eb, #a6c1ee); display: flex; align-items: center; justify-content: center; margin: 0 auto 16rpx; }
+.avatar text { font-size: 52rpx; }
+.greeting { font-size: 28rpx; color: var(--color-hint); }
+
+.data-cards { display: flex; gap: 12rpx; margin-bottom: 28rpx; }
+.data-card { flex: 1; background: var(--color-white); border-radius: 20rpx; padding: 22rpx 0; text-align: center; box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.04); }
+.data-num { display: block; font-size: 44rpx; font-weight: 700; color: var(--color-primary); margin-bottom: 4rpx; }
+.data-label { display: block; font-size: 20rpx; color: var(--color-hint); }
+
+.section-label { font-size: 26rpx; color: var(--color-hint); margin-bottom: 14rpx; display: block; }
+
+.fav-category { margin-bottom: 28rpx; }
+.fav-cat-card { display: flex; align-items: center; background: var(--color-white); border-radius: 20rpx; padding: 24rpx; box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.04); }
+.fc-icon { font-size: 48rpx; margin-right: 20rpx; }
+.fc-name { display: block; font-size: 30rpx; font-weight: 600; color: var(--color-primary); }
+.fc-count { display: block; font-size: 24rpx; color: var(--color-hint); }
+
+.weekly-stats { margin-bottom: 28rpx; }
+.week-bar { display: flex; gap: 12rpx; background: var(--color-white); border-radius: 20rpx; padding: 20rpx 16rpx; }
+.week-item { flex: 1; display: flex; flex-direction: column; align-items: center; }
+.week-day { font-size: 20rpx; color: var(--color-hint); margin-bottom: 8rpx; }
+.bar-wrap { width: 28rpx; height: 80rpx; background: var(--color-bg); border-radius: 14rpx; display: flex; align-items: flex-end; overflow: hidden; margin-bottom: 6rpx; }
+.bar-fill { width: 100%; background: linear-gradient(to top, #667eea, #764ba2); border-radius: 14rpx; transition: height 0.3s; }
+.week-num { font-size: 20rpx; color: var(--color-secondary); }
+.week-check { font-size: 18rpx; }
+
+.menu-section { background: var(--color-white); border-radius: 20rpx; overflow: hidden; box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.04); }
+.menu-item { display: flex; align-items: center; padding: 28rpx 24rpx; border-bottom: 1rpx solid var(--color-border); }
+.menu-item:last-child { border-bottom: none; }
+.menu-item:active { background: var(--color-bg); }
+.menu-icon { font-size: 36rpx; margin-right: 18rpx; }
+.menu-title { flex: 1; font-size: 30rpx; color: var(--color-primary); }
+.menu-badge { background: var(--color-accent); color: #fff; font-size: 22rpx; padding: 4rpx 14rpx; border-radius: 16rpx; margin-right: 12rpx; }
+.menu-arrow { font-size: 36rpx; color: var(--color-hint); font-weight: 200; }

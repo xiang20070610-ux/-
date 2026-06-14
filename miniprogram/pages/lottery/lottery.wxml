@@ -1,0 +1,89 @@
+<!-- 活动抽签页面 -->
+<view class="page-container {{darkMode ? 'dark' : ''}}">
+  <!-- 标题区 -->
+  <view class="lottery-header fade-in">
+    <text class="lottery-title">🎰 活动抽签</text>
+    <text class="lottery-subtitle">选择困难？交给缘分决定</text>
+  </view>
+
+  <!-- 抽签转盘区 -->
+  <view class="lottery-wheel-area fade-in">
+    <!-- 滚动文字区域 -->
+    <view class="wheel-display {{spinning ? 'spinning' : ''}}">
+      <text class="wheel-text">{{displayText}}</text>
+    </view>
+    <view class="wheel-icon">
+      <text>{{displayIcon}}</text>
+    </view>
+  </view>
+
+  <!-- 选择分类 -->
+  <view class="category-select fade-in" wx:if="{{!spinning}}">
+    <text class="section-label">选择活动类型</text>
+    <view class="category-grid">
+      <view
+        wx:for="{{categories}}"
+        wx:key="id"
+        class="cat-option {{selectedCategory === item.id ? 'active' : ''}}"
+        data-id="{{item.id}}"
+        bind:tap="onSelectCategory"
+      >
+        <text class="cat-icon">{{item.icon}}</text>
+        <text class="cat-text">{{item.name}}</text>
+      </view>
+      <!-- 全部随机 -->
+      <view
+        class="cat-option {{selectedCategory === 0 ? 'active' : ''}}"
+        data-id="{{0}}"
+        bind:tap="onSelectCategory"
+      >
+        <text class="cat-icon">🎲</text>
+        <text class="cat-text">全部随机</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 抽签按钮 -->
+  <view class="lottery-btn-area fade-in">
+    <view class="lottery-btn {{spinning ? 'disabled' : ''}}" bind:tap="onStartLottery">
+      <text>{{spinning ? '抽取中...' : result ? '再来一次' : '🎯 开始抽取'}}</text>
+    </view>
+  </view>
+
+  <!-- 结果展示 -->
+  <view class="lottery-result fade-in" wx:if="{{result && !spinning}}">
+    <view class="result-card">
+      <text class="result-label">✨ 命运的选择</text>
+      <view class="result-content">
+        <text class="result-icon">{{result.icon || '🎯'}}</text>
+        <text class="result-title">{{result.title}}</text>
+        <text class="result-desc">{{result.description}}</text>
+        <view class="result-tags">
+          <text class="tag" wx:for="{{result.tags || []}}" wx:key="*this">{{item}}</text>
+        </view>
+      </view>
+      <view class="result-actions">
+        <view class="result-btn" bind:tap="onAccept">
+          <text>✅ 就它了</text>
+        </view>
+        <view class="result-btn outline" bind:tap="onStartLottery">
+          <text>🔄 再抽一次</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 历史记录 -->
+  <view class="lottery-history fade-in" wx:if="{{historyList.length > 0}}">
+    <text class="section-label">抽签记录</text>
+    <view class="history-list">
+      <view class="history-row" wx:for="{{historyList}}" wx:key="id">
+        <text class="h-icon">{{item.icon || '🎯'}}</text>
+        <text class="h-title text-ellipsis">{{item.title}}</text>
+        <text class="h-time">{{item.time}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="safe-bottom"></view>
+</view>

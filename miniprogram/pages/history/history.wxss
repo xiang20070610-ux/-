@@ -1,0 +1,3 @@
+.page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24rpx; }
+.page-title { font-size: 36rpx; font-weight: 700; color: var(--color-primary); }
+.clear-btn { font-size: 26rpx; color: var(--color-accent); padding: 8rpx 16rpx; }

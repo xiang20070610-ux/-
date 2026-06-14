@@ -1,0 +1,42 @@
+<!-- 分类活动列表页 -->
+<view class="page-container {{darkMode ? 'dark' : ''}}">
+  <!-- 分类头 -->
+  <view class="category-header fade-in">
+    <text class="category-icon">{{categoryInfo.icon || '📌'}}</text>
+    <text class="category-name">{{categoryInfo.name || '加载中...'}}</text>
+    <text class="category-desc">{{categoryInfo.description || ''}}</text>
+  </view>
+
+  <!-- 统计条 -->
+  <view class="stats-bar fade-in">
+    <text>共 {{totalCount}} 条活动</text>
+  </view>
+
+  <!-- 活动列表 -->
+  <view class="activity-list">
+    <activity-card
+      wx:for="{{activityList}}"
+      wx:key="id"
+      activity="{{item}}"
+      isFavorited="{{item._isFav}}"
+      showFavorite="{{true}}"
+      bind:tap="onActivityTap"
+      bind:favorite="onActivityFavorite"
+    />
+  </view>
+
+  <!-- 加载更多 -->
+  <view class="load-more" wx:if="{{hasMore}}">
+    <text class="load-text" bind:tap="loadMore">
+      {{loadingMore ? '加载中...' : '加载更多'}}
+    </text>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{!loading && activityList.length === 0}}">
+    <text class="empty-icon">📭</text>
+    <text class="empty-text">暂无活动</text>
+  </view>
+
+  <view class="safe-bottom"></view>
+</view>
