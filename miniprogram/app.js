@@ -7,7 +7,7 @@ const storage = require('./utils/storage');
 App({
   globalData: {
     // 后端API地址（生产环境改为你的 Render 地址）
-    apiBaseUrl: 'https://你的域名.onrender.com/api',
+    apiBaseUrl: 'https://random-island.onrender.com/api',
     // 用户唯一标识（模拟，生产环境应通过wx.login获取）
     userOpenid: '',
     // 深色模式

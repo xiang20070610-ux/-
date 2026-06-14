@@ -13,7 +13,7 @@ function request(url, options = {}) {
     data = {},
     header = {},
     showLoading = false,
-    timeout = 10000,
+    timeout = 60000,
   } = options;
 
   const apiUrl = app.getApiUrl(url);
