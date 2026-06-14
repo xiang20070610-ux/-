@@ -19,6 +19,7 @@ const PORT = process.env.PORT || 3000;
 // 中间件
 app.use(cors());
 app.use(express.json());
+app.use(express.static('public'));
 
 // 日志中间件
 app.use((req, res, next) => {
