@@ -23,11 +23,15 @@ async function api(path, options = {}) {
 const API = {
   getCategories: () => api('/activities/categories'),
   getActivities: (params) => {
-    const qs = new URLSearchParams(params).toString();
+    const clean = {};
+    Object.keys(params).forEach(k => { if (params[k] != null && params[k] !== '') clean[k] = params[k]; });
+    const qs = new URLSearchParams(clean).toString();
     return api('/activities?' + qs);
   },
   getRandom: (params) => {
-    const qs = new URLSearchParams(params).toString();
+    const clean = {};
+    Object.keys(params).forEach(k => { if (params[k] != null && params[k] !== '') clean[k] = params[k]; });
+    const qs = new URLSearchParams(clean).toString();
     return api('/activities/random?' + qs);
   },
   addFavorite: (activityId) => api(`/activities/${activityId}/favorite`, { method: 'POST', data: { user_openid: USER_ID } }),

@@ -308,7 +308,9 @@ async function startLottery() {
   btn.disabled = true;
 
   try {
-    const res = await API.getActivities({ category_id: currentCategoryId || undefined, page_size: 50 });
+    const params = { page_size: 50 };
+    if (currentCategoryId > 0) params.category_id = currentCategoryId;
+    const res = await API.getActivities(params);
     lotteryPool = res.data?.list || [];
   } catch (e) { lotteryPool = []; }
 
